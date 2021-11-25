@@ -1,13 +1,17 @@
 <template>
   <div>
     <h3 class="mxed__title">Форма подачи заявки в отдел сервиса и качества</h3>
-    <form class="mxed-form"></form>
+    <form class="mxed-form">
+      <branch-selector />
+    </form>
   </div>
 </template>
 
 <script>
+import BranchSelector from "@/components/BranchSelector";
 export default {
   name: "FormWindow",
+  components: { BranchSelector },
 };
 </script>
 
@@ -21,6 +25,8 @@ export default {
 }
 .mxed-form {
   border: 1px solid #e1e1e1;
-  border-radius: 4px;
+  border-radius: 2px;
+  padding: 38px 36px;
+  color: #4e4a49;
 }
 </style>
