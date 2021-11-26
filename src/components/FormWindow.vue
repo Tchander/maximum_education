@@ -4,6 +4,7 @@
     <form class="mxed-form">
       <branch-selector />
       <appeal-subject />
+      <problem-description />
     </form>
   </div>
 </template>
@@ -11,9 +12,10 @@
 <script>
 import BranchSelector from "@/components/BranchSelector";
 import AppealSubject from "@/components/AppealSubject";
+import ProblemDescription from "@/components/ProblemDescription";
 export default {
   name: "FormWindow",
-  components: { AppealSubject, BranchSelector },
+  components: { ProblemDescription, AppealSubject, BranchSelector },
 };
 </script>
 

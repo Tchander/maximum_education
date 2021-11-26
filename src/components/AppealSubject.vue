@@ -1,5 +1,5 @@
 <template>
-  <div class="mxed-block">
+  <div class="mxed-block mxed-block--appeal">
     <div class="mxed-label mxed-label--appeal">
       <span class="mxed-label__title mxed-label__title--required"
         >Тема обращения</span
@@ -70,6 +70,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.mxed-block--appeal {
+  margin-bottom: 36px;
+}
 .mxed-label--appeal {
   margin-bottom: 16px;
 }
