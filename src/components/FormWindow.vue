@@ -3,15 +3,17 @@
     <h3 class="mxed__title">Форма подачи заявки в отдел сервиса и качества</h3>
     <form class="mxed-form">
       <branch-selector />
+      <appeal-subject />
     </form>
   </div>
 </template>
 
 <script>
 import BranchSelector from "@/components/BranchSelector";
+import AppealSubject from "@/components/AppealSubject";
 export default {
   name: "FormWindow",
-  components: { BranchSelector },
+  components: { AppealSubject, BranchSelector },
 };
 </script>
 
@@ -21,7 +23,7 @@ export default {
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 0.5px;
-  margin: 12px 0 24px 0;
+  margin: 14px 0 24px 0;
 }
 .mxed-form {
   border: 1px solid #e1e1e1;
