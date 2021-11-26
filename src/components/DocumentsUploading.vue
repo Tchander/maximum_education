@@ -1,5 +1,5 @@
 <template>
-  <div class="mxed-block">
+  <div class="mxed-block mxed-block--less_margin">
     <div class="mxed-label mxed-label--increased_margin">
       <span class="mxed-label__title mxed-label__title--increased_ls"
         >Загрузка документов</span

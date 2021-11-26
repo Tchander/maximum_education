@@ -6,6 +6,7 @@
       <appeal-subject />
       <problem-description />
       <documents-uploading />
+      <submit-button />
     </form>
   </div>
 </template>
@@ -15,9 +16,11 @@ import BranchSelector from "@/components/BranchSelector";
 import AppealSubject from "@/components/AppealSubject";
 import ProblemDescription from "@/components/ProblemDescription";
 import DocumentsUploading from "@/components/DocumentsUploading";
+import SubmitButton from "@/components/SubmitButton";
 export default {
   name: "FormWindow",
   components: {
+    SubmitButton,
     DocumentsUploading,
     ProblemDescription,
     AppealSubject,

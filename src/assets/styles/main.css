@@ -7,6 +7,9 @@
 .mxed-block--less_margin {
   margin-bottom: 36px;
 }
+.mxed-block--no_margin {
+  margin-bottom: 0;
+}
 .mxed-label__title {
   letter-spacing: .5px;
   position: relative;
