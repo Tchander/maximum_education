@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mxed-block">
     <div class="mxed-label">
       <span class="mxed-label__title mxed-label__title--required"
         >Ваш филиал</span
@@ -92,22 +92,7 @@ export default {
   max-width: 236px;
   cursor: pointer;
 }
-.mxed-label {
-  margin-bottom: 9px;
-  .mxed-label__title {
-    letter-spacing: 0.27px;
-    position: relative;
-    &--required {
-      &:after {
-        content: "*";
-        color: #d36f7b;
-        position: absolute;
-        top: 1px;
-        right: -11px;
-      }
-    }
-  }
-}
+
 .mxed-dropdown {
   position: relative;
   margin-bottom: 20px;

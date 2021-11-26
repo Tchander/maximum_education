@@ -1,0 +1,17 @@
+.mxed-label {
+  margin-bottom: 9px;
+}
+.mxed-block {
+  margin-bottom: 40px;
+}
+.mxed-label__title {
+  letter-spacing: .5px;
+  position: relative;
+}
+.mxed-label__title--required:after {
+  content: "*";
+  color: #d36f7b;
+  position: absolute;
+  top: 1px;
+  right: -11px;
+}
