@@ -5,6 +5,7 @@
       <branch-selector />
       <appeal-subject />
       <problem-description />
+      <documents-uploading />
     </form>
   </div>
 </template>
@@ -13,9 +14,15 @@
 import BranchSelector from "@/components/BranchSelector";
 import AppealSubject from "@/components/AppealSubject";
 import ProblemDescription from "@/components/ProblemDescription";
+import DocumentsUploading from "@/components/DocumentsUploading";
 export default {
   name: "FormWindow",
-  components: { ProblemDescription, AppealSubject, BranchSelector },
+  components: {
+    DocumentsUploading,
+    ProblemDescription,
+    AppealSubject,
+    BranchSelector,
+  },
 };
 </script>
 

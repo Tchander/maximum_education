@@ -1,11 +1,11 @@
 <template>
-  <div class="mxed-block">
-    <div class="mxed-label mxed-label--description">
+  <div class="mxed-block mxed-block--less_margin">
+    <div class="mxed-label mxed-label--increased_margin">
       <span
         class="
           mxed-label__title
           mxed-label__title--required
-          mxed-label__title--description
+          mxed-label__title--increased_ls
         "
         >Описание проблемы</span
       >
@@ -38,12 +38,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mxed-label--description {
-  margin-bottom: 14px;
-  .mxed-label__title--description {
-    letter-spacing: 0.75px;
-  }
-}
 .mxed-description {
   width: 100%;
   height: 120px;

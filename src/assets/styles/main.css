@@ -4,6 +4,9 @@
 .mxed-block {
   margin-bottom: 40px;
 }
+.mxed-block--less_margin {
+  margin-bottom: 36px;
+}
 .mxed-label__title {
   letter-spacing: .5px;
   position: relative;
@@ -14,4 +17,10 @@
   position: absolute;
   top: 1px;
   right: -11px;
+}
+.mxed-label__title--increased_ls {
+  letter-spacing: 0.75px;
+}
+.mxed-label--increased_margin {
+  margin-bottom: 14px;
 }
