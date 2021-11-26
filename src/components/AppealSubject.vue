@@ -9,6 +9,9 @@
       class="mxed-radio"
       v-for="(subject, index) in $options.SUBJECTS_OF_APPEAL"
       :key="index"
+      :class="{
+        'mxed-radio--last': index === $options.SUBJECTS_OF_APPEAL.length - 1,
+      }"
     >
       <input
         class="mxed-radio__button"
@@ -16,24 +19,52 @@
         :id="'radio_' + index"
         name="subject_of_appeal"
         :value="subject"
-        v-model="selectedAppeal"
+        @click="onChangeAppeal(subject)"
       />
       <label class="mxed-radio__label" :for="'radio_' + index">{{
         subject
       }}</label>
     </div>
+    <input
+      class="mxed__input"
+      type="text"
+      placeholder="Другое"
+      :value="inputAppeal"
+      @input="onChangeValue"
+    />
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 import { SUBJECTS_OF_APPEAL } from "@/const";
 export default {
   SUBJECTS_OF_APPEAL,
   name: "AppealSubject",
-  data() {
-    return {
-      selectedAppeal: "",
-    };
+  // data() {
+  //   return {
+  //     selectedAppeal: "",
+  //     currentAppeal: "",
+  //   };
+  // },
+  computed: {
+    ...mapGetters("appeals", {
+      selectedAppeal: "selectedAppeal",
+      inputAppeal: "inputAppeal",
+    }),
+  },
+  methods: {
+    ...mapActions("appeals", ["changeInputAppeal", "changeSelectedAppeal"]),
+    onChangeAppeal(subject) {
+      this.changeInputAppeal("");
+      this.changeSelectedAppeal(subject);
+    },
+    onChangeValue({ target: { value } }) {
+      if (this.selectedAppeal !== "") {
+        this.changeSelectedAppeal("");
+      }
+      this.changeInputAppeal(value);
+    },
   },
 };
 </script>
@@ -45,6 +76,9 @@ export default {
 .mxed-radio {
   position: relative;
   margin-bottom: 18px;
+  &--last {
+    margin-bottom: 14px;
+  }
   .mxed-radio__button {
     -webkit-appearance: none;
     appearance: none;
@@ -87,5 +121,15 @@ export default {
   .mxed-radio__button:checked + .mxed-radio__label:after {
     opacity: 1;
   }
+}
+.mxed__input {
+  border: 1px solid #e1e1e1;
+  border-radius: 2px;
+  width: 100%;
+  max-width: 236px;
+  letter-spacing: 0.6px;
+  background: #fff;
+  color: #4e4a49;
+  padding: 8px;
 }
 </style>
