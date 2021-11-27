@@ -1,5 +1,5 @@
 <template>
-  <div class="mxed-block">
+  <div class="mxed-block mxed-block--less_margin">
     <div class="mxed-label mxed-label--increased_margin">
       <span class="mxed-label__title mxed-label__title--increased_ls"
         >Загрузка документов</span
@@ -14,18 +14,16 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "DocumentsUploading",
-  computed: {
-    ...mapGetters("file", {
-      fileUrl: "fileUrl",
-    }),
-  },
   methods: {
-    ...mapActions("file", ["changeFileUrl"]),
-    onChangeValue({ target: { value } }) {
-      this.changeFileUrl(value);
+    ...mapActions("file", ["changeFile"]),
+    onChangeValue(e) {
+      const {
+        target: { files },
+      } = e;
+      this.changeFile(files[0]);
     },
   },
 };

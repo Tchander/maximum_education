@@ -15,6 +15,7 @@
     >
       <input
         class="mxed-radio__button"
+        v-model="selected"
         type="radio"
         :id="'radio_' + index"
         name="subject_of_appeal"
@@ -43,27 +44,29 @@ export default {
   name: "AppealSubject",
   // data() {
   //   return {
-  //     selectedAppeal: "",
-  //     currentAppeal: "",
+  //     selected: "",
   //   };
   // },
   computed: {
     ...mapGetters("appeals", {
       selectedAppeal: "selectedAppeal",
       inputAppeal: "inputAppeal",
+      selected: "selected",
     }),
   },
   methods: {
-    ...mapActions("appeals", ["changeInputAppeal", "changeSelectedAppeal"]),
+    ...mapActions("appeals", [
+      "changeInputAppeal",
+      "changeSelectedAppeal",
+      "changeSelected",
+    ]),
     onChangeAppeal(subject) {
-      this.changeInputAppeal("");
       this.changeSelectedAppeal(subject);
+      this.changeSelected(subject);
     },
     onChangeValue({ target: { value } }) {
-      if (this.selectedAppeal !== "") {
-        this.changeSelectedAppeal("");
-      }
       this.changeInputAppeal(value);
+      this.changeSelected("");
     },
   },
 };
