@@ -42,31 +42,26 @@ import { SUBJECTS_OF_APPEAL } from "@/const";
 export default {
   SUBJECTS_OF_APPEAL,
   name: "AppealSubject",
-  // data() {
-  //   return {
-  //     selected: "",
-  //   };
-  // },
+  data() {
+    return {
+      selected: "",
+    };
+  },
   computed: {
     ...mapGetters("appeals", {
       selectedAppeal: "selectedAppeal",
       inputAppeal: "inputAppeal",
-      selected: "selected",
+      // selected: "selected",
     }),
   },
   methods: {
-    ...mapActions("appeals", [
-      "changeInputAppeal",
-      "changeSelectedAppeal",
-      "changeSelected",
-    ]),
+    ...mapActions("appeals", ["changeInputAppeal", "changeSelectedAppeal"]),
     onChangeAppeal(subject) {
       this.changeSelectedAppeal(subject);
-      this.changeSelected(subject);
     },
     onChangeValue({ target: { value } }) {
       this.changeInputAppeal(value);
-      this.changeSelected("");
+      this.selected = "";
     },
   },
 };
