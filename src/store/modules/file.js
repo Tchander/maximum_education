@@ -1,23 +1,23 @@
 export default {
   namespaced: true,
   actions: {
-    changeFileUrl({ commit }, data) {
+    changeFile({ commit }, data) {
       try {
-        commit("updateFileUrl", data);
+        commit("updateFile", data);
       } catch (e) {
         console.log(e);
       }
     },
   },
   mutations: {
-    updateFileUrl(state, payload) {
-      state.fileUrl = payload;
+    updateFile(state, payload) {
+      state.file = payload;
     },
   },
   getters: {
-    fileUrl: (state) => state.fileUrl,
+    file: (state) => state.file,
   },
   state: {
-    fileUrl: "",
+    file: null,
   },
 };

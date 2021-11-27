@@ -12,17 +12,65 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import { CHOOSE_CITY } from "@/const";
+import { sendRequest } from "@/api/sendRequestApi";
+
 export default {
   name: "SubmitButton",
+  CHOOSE_CITY,
   computed: {
     isButtonDisabled() {
-      return true;
+      return (
+        this.outputCityData === this.$options.CHOOSE_CITY ||
+        this.outputAppealData === "" ||
+        this.description === ""
+      );
     },
+    ...mapGetters("cities", {
+      outputCityData: "outputCityData",
+    }),
+    ...mapGetters("file", {
+      fileUrl: "fileUrl",
+    }),
+    ...mapGetters("description", {
+      description: "description",
+    }),
+    ...mapGetters("appeals", {
+      outputAppealData: "outputAppealData",
+    }),
   },
   methods: {
-    sendData() {
-      console.log("42");
+    async sendData() {
+      const formData = new FormData();
+      formData.append("city", this.outputCityData);
+      formData.append("subjectOfAppeal", this.outputAppealData);
+      formData.append("problemDescription", this.description);
+      formData.append("document", this.fileUrl);
+      try {
+        // Отправка запроса по api
+        // const { response } = await sendRequest(formData);
+        // Получение случайного ответа, без отправки запроса из-за проблемы на стороне api
+        const response = sendRequest();
+        console.log(response);
+        if (response) {
+          this.changeIsOnline(false);
+          this.changeCurrentCity(this.$options.CHOOSE_CITY);
+          this.changeSelectedAppeal("");
+          this.changeSelected("");
+          this.changeDescription("");
+          this.changeFile(null);
+        } else {
+          alert("Ошибка отправки заявки");
+        }
+      } catch (e) {
+        console.error(e);
+      }
     },
+    ...mapActions("cities", ["changeCurrentCity", "changeIsOnline"]),
+    ...mapActions("appeals", ["changeSelected", "changeSelectedAppeal"]),
+    ...mapActions("description", ["changeDescription"]),
+    ...mapActions("file", ["changeFile"]),
   },
 };
 </script>
@@ -34,5 +82,9 @@ export default {
   padding: 8px 15px;
   text-transform: uppercase;
   cursor: not-allowed;
+  &--active {
+    cursor: pointer;
+    background: #ff966a;
+  }
 }
 </style>

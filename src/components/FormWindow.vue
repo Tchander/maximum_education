@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3 class="mxed__title">Форма подачи заявки в отдел сервиса и качества</h3>
-    <form class="mxed-form">
+    <form class="mxed-form" @submit.prevent="">
       <branch-selector />
       <appeal-subject />
       <problem-description />

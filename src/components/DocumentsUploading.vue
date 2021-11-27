@@ -14,18 +14,16 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "DocumentsUploading",
-  computed: {
-    ...mapGetters("file", {
-      fileUrl: "fileUrl",
-    }),
-  },
   methods: {
-    ...mapActions("file", ["changeFileUrl"]),
-    onChangeValue({ target: { value } }) {
-      this.changeFileUrl(value);
+    ...mapActions("file", ["changeFile"]),
+    onChangeValue(e) {
+      const {
+        target: { files },
+      } = e;
+      this.changeFile(files[0]);
     },
   },
 };
