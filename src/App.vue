@@ -4,6 +4,9 @@
   </div>
 </template>
 
+<style>
+@import "./assets/styles/main.css";
+</style>
 <style lang="scss">
 * {
   padding: 0;
