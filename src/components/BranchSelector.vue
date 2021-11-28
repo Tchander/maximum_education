@@ -92,7 +92,6 @@ export default {
   max-width: 236px;
   cursor: pointer;
 }
-
 .mxed-dropdown {
   position: relative;
   margin-bottom: 20px;

@@ -51,7 +51,6 @@ export default {
     ...mapGetters("appeals", {
       selectedAppeal: "selectedAppeal",
       inputAppeal: "inputAppeal",
-      // selected: "selected",
     }),
   },
   methods: {

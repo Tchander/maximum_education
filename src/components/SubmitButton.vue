@@ -4,6 +4,7 @@
       :disabled="isButtonDisabled"
       class="mxed-btn"
       :class="{ 'mxed-btn--active': !isButtonDisabled }"
+      type="submit"
       @click="sendData"
     >
       Отправить
@@ -56,7 +57,6 @@ export default {
           this.changeIsOnline(false);
           this.changeCurrentCity(this.$options.CHOOSE_CITY);
           this.changeSelectedAppeal("");
-          this.changeSelected("");
           this.changeDescription("");
           this.changeFile(null);
           await this.$router.push({
@@ -70,7 +70,7 @@ export default {
       }
     },
     ...mapActions("cities", ["changeCurrentCity", "changeIsOnline"]),
-    ...mapActions("appeals", ["changeSelected", "changeSelectedAppeal"]),
+    ...mapActions("appeals", ["changeSelectedAppeal"]),
     ...mapActions("description", ["changeDescription"]),
     ...mapActions("file", ["changeFile"]),
   },
