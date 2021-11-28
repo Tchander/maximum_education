@@ -31,7 +31,7 @@ export default {
       outputCityData: "outputCityData",
     }),
     ...mapGetters("file", {
-      fileUrl: "fileUrl",
+      file: "file",
     }),
     ...mapGetters("description", {
       description: "description",
@@ -46,13 +46,12 @@ export default {
       formData.append("city", this.outputCityData);
       formData.append("subjectOfAppeal", this.outputAppealData);
       formData.append("problemDescription", this.description);
-      formData.append("document", this.fileUrl);
+      formData.append("document", this.file);
       try {
         // Отправка запроса по api
         // const { response } = await sendRequest(formData);
         // Получение случайного ответа, без отправки запроса из-за проблемы на стороне api
         const response = sendRequest();
-        console.log(response);
         if (response) {
           this.changeIsOnline(false);
           this.changeCurrentCity(this.$options.CHOOSE_CITY);
@@ -60,6 +59,9 @@ export default {
           this.changeSelected("");
           this.changeDescription("");
           this.changeFile(null);
+          await this.$router.push({
+            name: "SuccessfulWindow",
+          });
         } else {
           alert("Ошибка отправки заявки");
         }
