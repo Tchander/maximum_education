@@ -42,6 +42,14 @@ export default {
   align-items: center;
   background: #fff;
   border: 1px solid #969696;
+  @media (max-width: 599px) {
+    width: 310px;
+    height: 220px;
+  }
+  @media (max-width: 319px) {
+    width: 270px;
+    height: 191px;
+  }
   .mxed-successful__title {
     position: relative;
     font-weight: 700;
@@ -49,6 +57,13 @@ export default {
     margin-top: 45px;
     margin-bottom: 20px;
     color: #2b2b2b;
+    @media (max-width: 599px) {
+      margin-top: 15px;
+    }
+    @media (max-width: 319px) {
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
   }
   .mxed-successful__image {
     margin: 0 auto;
@@ -62,6 +77,16 @@ export default {
     width: 20px;
     height: 20px;
     cursor: pointer;
+    @media (max-width: 599px) {
+      right: -90px;
+      top: -10px;
+    }
+    @media (max-width: 319px) {
+      right: -72px;
+      top: -6px;
+      width: 16px;
+      height: 16px;
+    }
     &:before,
     &:after {
       position: absolute;
@@ -69,6 +94,9 @@ export default {
       height: 20px;
       width: 2px;
       background-color: #252525;
+      @media (max-width: 319px) {
+        height: 16px;
+      }
     }
     &:before {
       transform: rotate(45deg);

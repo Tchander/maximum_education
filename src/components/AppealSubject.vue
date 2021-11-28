@@ -114,6 +114,9 @@ export default {
       opacity: 0;
       cursor: pointer;
     }
+    @media (max-width: 319px) {
+      font-size: 12px;
+    }
   }
   .mxed-radio__button:checked + .mxed-radio__label:after {
     opacity: 1;

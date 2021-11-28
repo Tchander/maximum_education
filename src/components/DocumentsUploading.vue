@@ -36,6 +36,9 @@ export default {
   max-width: 320px;
   letter-spacing: -0.4px;
   margin-bottom: 12px;
+  @media (max-width: 319px) {
+    font-size: 12px;
+  }
 }
 .mxed-file {
   letter-spacing: -0.3px;
